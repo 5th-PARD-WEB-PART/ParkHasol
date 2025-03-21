@@ -1,3 +1,8 @@
+파드 5기 웹 과제 1_박하솔 자기소개 페이지
+
+Home,About,Loves,Contact로 나누어 페이지를 구성했습니다.
+Home에는 간단한 자기소개와 작은 제 사진을 넣었고, About me에는 취미와 좋아하는 성경 구절 말씀, 고양이 사진을 넣었습니다. About 페이지에서는 hover 하면 이미지 크기가 커지도록 css를 구현해보았습니다. Loves에는 제가 사랑하는 사람들의 사진을 넣었고, 마지막으로 contact에는 제가 하고 있는 모든 sns 활동들을 링크로 넣었습니다.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
 ## Getting Started
@@ -38,3 +43,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
