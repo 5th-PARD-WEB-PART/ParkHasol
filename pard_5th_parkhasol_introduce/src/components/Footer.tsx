@@ -14,9 +14,9 @@ export default function Footer() {
             📸 Instagram: <a href="https://instagram.com/0l_ha3" target="_blank" rel="noopener noreferrer">@0l_ha3</a>
           </li>
           <li>
-        <li>
+        
             📝 <a href="https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0" target="_blank" rel="noopener noreferrer">BLOG</a>
-            </li>
+            
           </li>
           <li>
             📞 Phone: 010-5348-7435
