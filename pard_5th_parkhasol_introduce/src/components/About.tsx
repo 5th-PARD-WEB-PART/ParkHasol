@@ -1,6 +1,10 @@
 // components/About.tsx
 import React from 'react';
 
+interface AboutProps {
+  favoriteColors: string[];
+}
+
 // 인터페이스 사용
 interface Hobby {
   name: string;
@@ -22,7 +26,7 @@ const cats: Cat[] = [
   { name: '레고', image: '/images/cat2.jpeg' },
 ];
 
-export default function About() {
+export default function About({ favoriteColors }: AboutProps) {
   return (
     <section className="list" id="about">
       <div className="about-content">
@@ -31,6 +35,8 @@ export default function About() {
           <div className="about-box">
             <h3>🎨 취미 🎨</h3>
             <p>☁️ 뜨개질과 피아노 ☁️</p>
+            <p>(좋아하는 색: {favoriteColors.join(', ')})</p>
+
             <div className="hobby-images">
               <img src="/images/knitting.jpeg" alt="뜨개질" className="hobby-img" />
               <img src="/images/piano.jpeg" alt="피아노" className="hobby-img" />

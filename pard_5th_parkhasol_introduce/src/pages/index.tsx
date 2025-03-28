@@ -22,19 +22,13 @@ function getMajor(major: string): string {
 
 // 화살표 함수 사용
 const getGreeting = (name: string): string => {
-  return `안녕하세요, ${name}입니다!`;
+  return `안녕하세요, ${myAge}살 ${name}입니다!`;
 };
 
 // 타입 선언(4가지 이상)
 const myName: string = '박하솔';
 const myAge: number = 20;
-const isStudent: boolean = true;
 const favoriteColors: string[] = ['노란색', '초록색', '보라색'];
-const profileInfo: [string, number] = ['박하솔', 22];
-const anything: any = '모든 타입 가능';
-const maybeValue: null = null;
-const notDefined: undefined = undefined;
-const unsure: unknown = '아직 몰라요';
 
 // 인터페이스 + 상속 + 유틸리티 타입
 interface Person {
@@ -47,7 +41,10 @@ interface Developer extends Person {
   email: string;
 }
 
-const dev: Partial<Developer> = {
+// Pick 유틸리티 타입 사용
+type DevContact = Pick<Developer, 'name' | 'email'>;
+
+const dev: DevContact = {
   name: '하솔',
   email: 'hasol1229@handong.ac.kr'
 };
@@ -70,10 +67,11 @@ export default function Home() {
             <p>{getMajor('전산전자공학부')} / 웹파트 </p>
           </div>
         </section>
-        <About />
+        <About favoriteColors={favoriteColors} />
         <Family />
         <Footer />
       </div>
     </>
   );
 }
+
