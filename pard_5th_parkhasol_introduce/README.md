@@ -36,7 +36,7 @@ function Array<T>(value: T): T[] {</br>
 - 유틸리티 타입 1개 이상 사용하기 
 Pick 사용</br>
 type DevContact = Pick<Developer, 'name' | 'email'>;
-</br>
+
 const dev: DevContact = {
   name: '하솔',
   email: 'hasol1229@handong.ac.kr'
