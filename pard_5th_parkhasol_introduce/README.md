@@ -4,13 +4,13 @@ Home,About,Loves,Contact로 나누어 페이지를 구성했습니다.
 Home에는 간단한 자기소개와 작은 제 사진을 넣었고, About me에는 취미와 좋아하는 성경 구절 말씀, 고양이 사진을 넣었습니다. About 페이지에서는 hover 하면 이미지 크기가 커지도록 css를 구현해보았습니다. Loves에는 제가 사랑하는 사람들의 사진을 넣었고, 마지막으로 contact에는 제가 하고 있는 모든 sns 활동들을 링크로 넣었습니다.
 
 📘 TypeScript 조건 사용 설명 (README)
-1. 타입 선언 
-- 4가지 이상 사용
-string - myName,getMajor 등 이름과 전공 부분에서 사용
-number - myAge로 나이를 추가로 표현하여 사용
-string[] - favoriteColors로 좋아하는 색깔 추가
-- 배열 사용 !
-favoriteColors[],Hobby[],Cat[]에서 사용함
+1. 타입 선언 </br>
+- 4가지 이상 사용 </br>
+string - myName,getMajor 등 이름과 전공 부분에서 사용</br>
+number - myAge로 나이를 추가로 표현하여 사용</br>
+string[] - favoriteColors로 좋아하는 색깔 추가</br>
+- 배열 사용 !</br>
+favoriteColors[],Hobby[],Cat[]에서 사용함</br>
 
 2. 객체 선언
 - 인터페이스 상속 사용해보기
