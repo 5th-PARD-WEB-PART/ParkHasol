@@ -12,31 +12,31 @@ string[] - favoriteColors로 좋아하는 색깔 추가</br>
 - 배열 사용 !</br>
 favoriteColors[],Hobby[],Cat[]에서 사용함</br>
 
-2. 객체 선언
-- 인터페이스 상속 사용해보기
-Person, Developer, Hobby, Cat, FamilyGroup에서 interface를 사용했고, Developer extends Person로 상속을 사용함
-- 타입 별칭 사용해보기(인터섹션/ 유니언/ 제네릭/ 유틸리티/ 맵드)
-`type Section = 'about' 으로 유니언 타입 별칭을 사용함
+2. 객체 선언</br>
+- 인터페이스 상속 사용해보기</br>
+Person, Developer, Hobby, Cat, FamilyGroup에서 interface를 사용했고, Developer extends Person로 상속을 사용함</br>
+- 타입 별칭 사용해보기(인터섹션/ 유니언/ 제네릭/ 유틸리티/ 맵드)</br>
+`type Section = 'about' 으로 유니언 타입 별칭을 사용함</br>
 
 3. 함수 사용
--1가지 이상 (함수 선언식, 함수 표현식)
-function getMajor(major: string): string {
-  return `${major}`;
-}
--화살표 함수 사용하기
-const getGreeting = (name: string): string => {
-  return `안녕하세요, ${myAge}살 ${name}입니다!`;
-};
+-1가지 이상 (함수 선언식, 함수 표현식)</br>
+function getMajor(major: string): string {</br>
+  return `${major}`;</br>
+}</br>
+-화살표 함수 사용하기</br>
+const getGreeting = (name: string): string => {</br>
+  return `안녕하세요, ${myAge}살 ${name}입니다!`;</br>
+};</br>
 
 4. TS 문법
-- 제네릭 문법 사용 (타입을 미리 정의하지 않고 사용하는 시점에 원하는 타입 정의해서 쓸 수 있는 문법) 
-function Array<T>(value: T): T[] {
-  return [value];
+- 제네릭 문법 사용 (타입을 미리 정의하지 않고 사용하는 시점에 원하는 타입 정의해서 쓸 수 있는 문법) </br>
+function Array<T>(value: T): T[] {</br>
+  return [value];</br>
 }
 - 유틸리티 타입 1개 이상 사용하기 
-Pick 사용
+Pick 사용</br>
 type DevContact = Pick<Developer, 'name' | 'email'>;
-
+</br>
 const dev: DevContact = {
   name: '하솔',
   email: 'hasol1229@handong.ac.kr'
