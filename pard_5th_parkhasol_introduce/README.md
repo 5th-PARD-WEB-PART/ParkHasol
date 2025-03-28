@@ -42,8 +42,6 @@ const dev: DevContact = {
   email: 'hasol1229@handong.ac.kr'
 };
 
-유틸리티 타입 중 하나로, 모든 속성을 optional로 바꿔주는 기능. 예: Partial<{ name: string }> → { name?: string }
-
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
