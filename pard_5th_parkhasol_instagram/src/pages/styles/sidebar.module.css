@@ -1,0 +1,62 @@
+.sidebar {
+  position: fixed;
+  width: 250px;
+  height: 5000px;
+  background-color: black;
+  color: white;
+  border-right: 1px solid #4b5563;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 92px;
+  height: 26px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.menu {
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  width: 195px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #161616;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Inter;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.link {
+  width: 195px;
+  height: 42px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  background-color: #161616;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Inter;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 8px;
+}
