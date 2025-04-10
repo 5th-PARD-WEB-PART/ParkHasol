@@ -11,7 +11,6 @@ export default function Profile() {
     { id: 5, image: "" },
     { id: 6, image: "" },
   ]);
-  
 
   return (
     <div className={styles.container}>
@@ -24,11 +23,15 @@ export default function Profile() {
             alt="profile"
             className={styles.avatar}
           />
+
           <div className={styles.profileText}>
-            <div className={styles.userId}>0l_ha3</div>
-            <button className={styles.editBtn}>프로필 편집</button>
+            <div className={styles.userInfoTop}>
+              <div className={styles.userId}>0l_ha3</div>
+              <button className={styles.editBtn}>프로필 편집</button>
+            </div>
+
             <div className={styles.stats}>
-              <span>게시물 0</span>
+              <span>게시물 3</span>
               <span>팔로워 0</span>
               <span>팔로우 0</span>
             </div>
