@@ -1,7 +1,7 @@
 .sidebar {
   position: fixed;
   width: 250px;
-  height: 5000px;
+  height: 100vh;
   background-color: black;
   color: white;
   border-right: 1px solid #4b5563;
@@ -9,54 +9,63 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* 더보기 버튼을 하단으로 */
 }
 
 .logo {
   width: 92px;
   height: 26px;
   padding-left: 10px;
-  margin-bottom: 20px;
-  margin-top: 30px;
+  margin: 30px 0 20px;
+  object-fit: contain;
 }
 
 .menu {
+  list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1;
 }
 
 .menu li {
-  width: 195px;
-  height: 42px;
-  border-radius: 8px;
-  background-color: #161616;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: Inter;
   margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
 }
 
 .link {
-  width: 195px;
-  height: 42px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  background-color: #161616;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: Inter;
-  margin-top: 3px;
   display: flex;
   align-items: center;
+  width: 195px;
+  height: 42px;
+  padding-left: 10px;
+  border-radius: 8px;
+  background-color: #161616;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Inter, sans-serif;
   cursor: pointer;
+
+  /* 👇 버튼 크기 & 여백 지정 */
+  margin: 6px 8px;
+  flex-shrink: 0;
 }
+
 
 .icon {
   width: 20px;
   height: 20px;
-  margin-left: 15px;
   margin-right: 8px;
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #161616;
+  font-family: Inter, sans-serif;
 }

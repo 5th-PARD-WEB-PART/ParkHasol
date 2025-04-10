@@ -1,123 +1,106 @@
-.pageWrapper {
+/* 전체 레이아웃 */
+.container {
   display: flex;
+  height: 100vh;
+  background-color: #000;
+  color: white;
+  font-family: sans-serif;
 }
 
+/* 메인 콘텐츠 */
 .main {
-  margin-left: 250px;
-  padding: 40px;
-  color: white;
+  margin-left: 250px; /* 사이드바 공간 확보 */
   flex: 1;
-  background-color: black;
+  padding: 40px;
+  overflow-y: auto;
 }
 
-.profileSection {
+/* 프로필 정보 영역 */
+.profileInfo {
   display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  margin-bottom: 200px;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
-.profileInfo h2 {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 17px;
+/* 프로필 텍스트 정렬 */
+.profileText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.profileStat {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 14px;
-  margin-right: 20px;
+.userId {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.profileInfo button {
-  font-family: Inter;
-  width: 85px;
-  height: 29px;
-  background-color: #343434;
-  border-radius: 8px;
+.editBtn {
+  padding: 6px 12px;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
   color: white;
-  font-size: 12px;
-  font-weight: 500;
+  cursor: pointer;
 }
 
-.avatar {
-  margin-top: 20px;
-  margin-left: 100px;
-  width: 185px;
-  height: 185px;
-  border-radius: 9999px;
-  background-color: #333;
+.stats span {
   margin-right: 20px;
+  font-size: 14px;
 }
 
-.name {
-  font-size: 17px;
-  font-weight: 600;
-  margin-right: 20px;
-}
-
-.profileSection h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 20px;
-}
-
-.divider {
-  margin: 32px 0;
-  border: none;
-  height: 1px;
-  background-color: #333;
-}
-
-.gridSection {
-  display: flex;
-  justify-content: center;
-}
-
+/* 🧱 게시물 그리드 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 274px);
-  grid-template-rows: auto;
-  gap: 12px;
+  grid-template-columns: repeat(3, 274px); /* 고정된 너비 3칸 */
+  gap: 3px;                                 /* ✅ 간격 3px */
+  justify-content: center;
+  margin-top: 210px;
 }
 
-.post {
-  position: relative;
+/* 각 게시물 박스 */
+.postBox {
   width: 274px;
   height: 274px;
-  background-color: #D9D9D9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-shrink: 0;           /* ✅ 크기 유지 */
+  background-color: #222;
+  position: relative;
   overflow: hidden;
+  border-radius: 0;
 }
 
-.post img {
+/* 이미지 게시물 */
+.postImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* 빈 게시물 (회색 박스 + 배경 이미지) */
+.placeholder {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+  background-color: #D9D9D9;
+  background: url("/img/placeholder-image.png") lightgray 50% / cover no-repeat;
+  border-radius: 0;
 }
 
-.post:hover .overlay {
-  opacity: 1;
+/* 프로필 사진 */
+.avatar {
+  width: 145.357px;
+  height: 145.357px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 40px;
+  /* ✅ 사이드바와의 간격 확보 */
+  margin-left: 270px;
+}
+
+
+/* 로고 */
+.logo {
+  width: 92px;
+  height: 26px;
+  object-fit: contain;
+  margin-bottom: 30px;
 }
