@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./component/sidebar";
+import FeedCard from "./component/FeedCard";
+import PostModal from "./component/PostModal";
 import styles from "./styles/mypage.module.css";
 
 export default function Profile() {
@@ -11,6 +13,23 @@ export default function Profile() {
     { id: 5, image: "" },
     { id: 6, image: "" },
   ]);
+
+  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
+  const [likes, setLikes] = useState<{ [id: number]: boolean }>({});
+  const [comments, setComments] = useState<{ [id: number]: string[] }>({});
+
+  const handleToggleLike = (postId: number) => {
+    setLikes((prev) => ({ ...prev, [postId]: !prev[postId] }));
+  };
+
+  const handleAddComment = (postId: number, comment: string) => {
+    setComments((prev) => ({
+      ...prev,
+      [postId]: [...(prev[postId] || []), comment],
+    }));
+  };
+
+  const selectedPost = posts.find((p) => p.id === selectedPostId);
 
   return (
     <div className={styles.container}>
@@ -40,16 +59,26 @@ export default function Profile() {
 
         <section className={styles.grid}>
           {posts.map((post) => (
-            <div key={post.id} className={styles.postBox}>
-              {post.image ? (
-                <img src={post.image} alt="post" className={styles.postImg} />
-              ) : (
-                <div className={styles.placeholder}></div>
-              )}
-            </div>
+            <FeedCard
+              key={post.id}
+              image={post.image}
+              onClick={() => setSelectedPostId(post.id)}
+            />
           ))}
         </section>
       </main>
+
+      {selectedPost && (
+        <PostModal
+          postId={selectedPost.id}
+          image={selectedPost.image}
+          onClose={() => setSelectedPostId(null)}
+          liked={!!likes[selectedPost.id]}
+          onToggleLike={() => handleToggleLike(selectedPost.id)}
+          comments={comments[selectedPost.id] || []}
+          onAddComment={(comment) => handleAddComment(selectedPost.id!, comment)}
+        />
+      )}
     </div>
   );
 }
