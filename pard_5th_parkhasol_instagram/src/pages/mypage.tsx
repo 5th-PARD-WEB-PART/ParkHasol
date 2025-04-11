@@ -3,6 +3,7 @@ import Sidebar from "./component/sidebar";
 import FeedCard from "./component/FeedCard";
 import PostModal from "./component/PostModal";
 import styles from "./styles/mypage.module.css";
+import modalStyles from "./styles/postmodal.module.css"; // 모달 스타일 분리 시도도 가능
 
 export default function Profile() {
   const [posts] = useState([

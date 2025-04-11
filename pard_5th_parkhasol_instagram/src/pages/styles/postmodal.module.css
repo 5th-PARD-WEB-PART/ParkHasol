@@ -1,0 +1,161 @@
+/* 기존 스타일 유지 + 레이아웃 개선 */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modalContent {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  
+  .modalImage {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .commentSection {
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .modalClose {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .userHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .userAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .userId {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .moreIcon {
+    width: 16px;
+    height: 16px;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  
+  .commentList {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .commentItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    flex-shrink: 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .commentAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .commentUser {
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 6px;
+  }
+  
+  .iconRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+  }
+  
+  .iconRow img {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+  }
+  
+  .commentForm {
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+    gap: 12px;
+  }
+  
+  .commentForm input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: #979797;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-bottom: 1px solid #444;
+  }
+  
+  .commentForm button {
+    background: none;
+    border: none;
+    color: #5A6E80;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
