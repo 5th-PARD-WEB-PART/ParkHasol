@@ -3,7 +3,6 @@ import Sidebar from "./component/sidebar";
 import FeedCard from "./component/FeedCard";
 import PostModal from "./component/PostModal";
 import styles from "./styles/mypage.module.css";
-import modalStyles from "./styles/postmodal.module.css"; // 모달 스타일 분리 시도도 가능
 
 export default function Profile() {
   const [posts] = useState([
@@ -77,7 +76,12 @@ export default function Profile() {
           liked={!!likes[selectedPost.id]}
           onToggleLike={() => handleToggleLike(selectedPost.id)}
           comments={comments[selectedPost.id] || []}
-          onAddComment={(comment) => handleAddComment(selectedPost.id!, comment)}
+          onAddComment={(comment) =>
+            handleAddComment(selectedPost.id!, comment)
+          }
+          onDelete={() => {
+            setSelectedPostId(null); // 삭제 시 모달 닫기 처리
+          }}
         />
       )}
     </div>

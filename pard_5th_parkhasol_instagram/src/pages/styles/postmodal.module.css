@@ -1,4 +1,4 @@
-/* 기존 스타일 유지 + 레이아웃 개선 */
+/* 기존 스타일 유지 + 메뉴 추가 */
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -36,6 +36,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
+    position: relative;
   }
   
   .modalClose {
@@ -55,6 +56,7 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    position: relative;
   }
   
   .userAvatar {
@@ -74,6 +76,37 @@
     height: 16px;
     margin-left: auto;
     cursor: pointer;
+  }
+  
+  .menuBox {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #1a1a1a;
+    border: 1px solid #ff5c5c;
+    border-radius: 10px;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .menuButton {
+    padding: 12px;
+    color: white;
+    font-size: 14px;
+    border: none;
+    width: 150px;
+    text-align: center;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    border-bottom: 1px solid #ff5c5c;
+  }
+  
+  .menuButton:last-child {
+    border-bottom: none;
+  }
+  
+  .menuButton:hover {
+    background-color: #333;
   }
   
   .commentList {
@@ -159,3 +192,32 @@
     width: auto;
     height: auto;
   }
+  
+  .commentInput {
+    width: 504px;
+    height: 61px;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #444;
+    color: #979797;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  .commentButton {
+    width: 24px;
+    height: 15px;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #5A6E80;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+  }
+  

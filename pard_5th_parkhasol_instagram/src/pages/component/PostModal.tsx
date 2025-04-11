@@ -9,6 +9,7 @@ interface PostModalProps {
   onToggleLike: () => void;
   comments: string[];
   onAddComment: (comment: string) => void;
+  onDelete: (postId: number) => void;
 }
 
 export default function PostModal({
@@ -19,13 +20,38 @@ export default function PostModal({
   onToggleLike,
   comments,
   onAddComment,
+  onDelete,
 }: PostModalProps) {
   const [input, setInput] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [editableComments, setEditableComments] = useState<string[]>(comments);
 
   const handleSubmit = () => {
     if (input.trim()) {
       onAddComment(input.trim());
+      setEditableComments([...editableComments, input.trim()]);
       setInput("");
+    }
+  };
+
+  const handleDelete = () => {
+    onDelete(postId);
+    setIsMenuOpen(false);
+    onClose();
+  };
+
+  const handleEditChange = (value: string) => {
+    if (editingIndex !== null) {
+      const newComments = [...editableComments];
+      newComments[editingIndex] = value;
+      setEditableComments(newComments);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setEditingIndex(null);
     }
   };
 
@@ -48,16 +74,46 @@ export default function PostModal({
           <div className={modalStyles.userHeader}>
             <img src="/img/profile.png" alt="profile" className={modalStyles.userAvatar} />
             <span className={modalStyles.userId}>0l_ha3</span>
-            <img src="/img/Spots.png" alt="more" className={modalStyles.moreIcon} />
+            <img
+              src="/img/Spots.png"
+              alt="more"
+              className={modalStyles.moreIcon}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            />
+
+            {isMenuOpen && (
+              <div className={modalStyles.menuBox}>
+                <button className={modalStyles.menuButton} onClick={handleDelete}>삭제</button>
+                <button
+                  className={modalStyles.menuButton}
+                  onClick={() => {
+                    setEditingIndex(0); // 첫 번째 댓글만 수정 가능하게
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  수정
+                </button>
+                <button className={modalStyles.menuButton} onClick={() => setIsMenuOpen(false)}>취소</button>
+              </div>
+            )}
           </div>
 
           <div className={modalStyles.commentList}>
-            {comments.map((comment, idx) => (
+            {editableComments.map((comment, idx) => (
               <div key={idx} className={modalStyles.commentItem}>
                 <img src="/img/profile.png" alt="profile" className={modalStyles.commentAvatar} />
-                <div>
-                  <span className={modalStyles.commentUser}>0l_ha3</span> {comment}
-                </div>
+                {editingIndex === idx ? (
+                  <input
+                    type="text"
+                    value={comment}
+                    onChange={(e) => handleEditChange(e.target.value)}
+                    onKeyDown={handleKeyPress}
+                  />
+                ) : (
+                  <div>
+                    <span className={modalStyles.commentUser}>0l_ha3</span> {comment}
+                  </div>
+                )}
               </div>
             ))}
           </div>
