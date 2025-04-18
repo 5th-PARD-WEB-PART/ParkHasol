@@ -1,0 +1,99 @@
+.editContainer {
+    display: flex;
+    height: 100vh;
+    background-color: #000;
+    color: white;
+  }
+  
+  /* 사이드바 고정 */
+  .sidebar {
+    position: fixed;
+    width: 250px;     /* 너가 쓰는 Sidebar 실제 너비 */
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #111;
+  }
+  
+  /* 메인 콘텐츠 */
+  .content {
+    margin-left: 250px;        /* ✅ 사이드바 너비만큼 밀기 */
+    display: flex;
+    justify-content: center;   /* ✅ 남은 영역에서 중앙정렬 */
+    align-items: flex-start;   /* ✅ 위쪽 정렬 */
+    width: calc(100% - 250px); /* ✅ 정확한 남은 너비 */
+    padding-top: 109px;        /* ✅ 위 여백 */
+  }
+  
+  .contentInner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 24px;
+  }
+  
+  .editCard {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 600px;
+  }
+  
+  .inputRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #000;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .input:focus {
+    border-color: #888;
+  }
+  
+  .button {
+    margin: 0 auto;
+    width: 275px;
+    height: 48px;
+    background-color: #3797ef;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #2f85da;
+  }
+  

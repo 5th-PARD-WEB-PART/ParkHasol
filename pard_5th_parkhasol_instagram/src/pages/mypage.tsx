@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Sidebar from "./component/sidebar";
 import FeedCard from "./component/FeedCard";
 import PostModal from "./component/PostModal";
+import { useUserStore } from "../store/useStore";
 import styles from "./styles/mypage.module.css";
 
 export default function Profile() {
+  const router = useRouter();
+  const nickname = useUserStore((state) => state.nickname); // ✅ 닉네임 가져오기
+
   const [posts] = useState([
     { id: 1, image: "/img/1.JPG" },
     { id: 2, image: "/img/2.JPG" },
@@ -45,8 +50,13 @@ export default function Profile() {
 
           <div className={styles.profileText}>
             <div className={styles.userInfoTop}>
-              <div className={styles.userId}>0l_ha3</div>
-              <button className={styles.editBtn}>프로필 편집</button>
+              <div className={styles.userId}>{nickname}</div> {/* ✅ 닉네임 반영 */}
+              <button
+                className={styles.editBtn}
+                onClick={() => router.push("/edit")} // ✅ 페이지 이동
+              >
+                프로필 편집
+              </button>
             </div>
 
             <div className={styles.stats}>
@@ -80,7 +90,7 @@ export default function Profile() {
             handleAddComment(selectedPost.id!, comment)
           }
           onDelete={() => {
-            setSelectedPostId(null); // 삭제 시 모달 닫기 처리
+            setSelectedPostId(null);
           }}
         />
       )}
