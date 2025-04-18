@@ -1,14 +1,15 @@
+// src/pages/mypage.tsx
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Sidebar from "./component/sidebar";
-import FeedCard from "./component/FeedCard";
-import PostModal from "./component/PostModal";
+import Sidebar from "../pages/component/sidebar";
+import PostModal from "../pages/component/PostModal";
 import { useUserStore } from "../store/useStore";
-import styles from "./styles/mypage.module.css";
+import styles from "../pages/styles/mypage.module.css";
 
 export default function Profile() {
   const router = useRouter();
-  const nickname = useUserStore((state) => state.nickname); // ✅ 닉네임 가져오기
+  const nickname = useUserStore((state) => state.nickname);
+  const [sidebarWidth, setSidebarWidth] = useState(250);
 
   const [posts] = useState([
     { id: 1, image: "/img/1.JPG" },
@@ -37,47 +38,49 @@ export default function Profile() {
   const selectedPost = posts.find((p) => p.id === selectedPostId);
 
   return (
-    <div className={styles.container}>
-      <Sidebar />
-
+    <div className={styles.pageWrapper}>
+      <Sidebar onWidthChange={setSidebarWidth} />
       <main className={styles.main}>
+        {/* 프로필 정보 */}
         <section className={styles.profileInfo}>
-          <img
-            src="/img/Profile.png"
-            alt="profile"
-            className={styles.avatar}
-          />
-
+          <img src="/img/Profile.png" alt="profile" className={styles.avatar} />
           <div className={styles.profileText}>
             <div className={styles.userInfoTop}>
-              <div className={styles.userId}>{nickname}</div> {/* ✅ 닉네임 반영 */}
+              <div className={styles.userId}>{nickname}</div>
               <button
                 className={styles.editBtn}
-                onClick={() => router.push("/edit")} // ✅ 페이지 이동
+                onClick={() => router.push("/edit")}
               >
                 프로필 편집
               </button>
             </div>
-
             <div className={styles.stats}>
-              <span>게시물 3</span>
+              <span>게시물 {posts.length}</span>
               <span>팔로워 0</span>
               <span>팔로우 0</span>
             </div>
           </div>
         </section>
 
+        {/* 게시물 그리드 */}
         <section className={styles.grid}>
           {posts.map((post) => (
-            <FeedCard
+            <div
               key={post.id}
-              image={post.image}
+              className={styles.postBox}
               onClick={() => setSelectedPostId(post.id)}
-            />
+            >
+              {post.image ? (
+                <img src={post.image} alt="post" className={styles.postImg} />
+              ) : (
+                <div className={styles.placeholder}></div>
+              )}
+            </div>
           ))}
         </section>
       </main>
 
+      {/* 게시물 모달 */}
       {selectedPost && (
         <PostModal
           postId={selectedPost.id}
@@ -89,9 +92,7 @@ export default function Profile() {
           onAddComment={(comment) =>
             handleAddComment(selectedPost.id!, comment)
           }
-          onDelete={() => {
-            setSelectedPostId(null);
-          }}
+          onDelete={() => setSelectedPostId(null)}
         />
       )}
     </div>
