@@ -113,3 +113,10 @@
   color: white;
   cursor: pointer;
 }
+
+/* margin-left는 JS로 적용하므로 삭제 가능 */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
