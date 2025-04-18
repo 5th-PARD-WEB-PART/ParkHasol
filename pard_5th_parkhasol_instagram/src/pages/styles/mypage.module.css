@@ -1,90 +1,86 @@
-/* 페이지 전체 래퍼 (사이드바 + 콘텐츠) */
-.pageWrapper {
+/* 전체 레이아웃 */
+.container {
   display: flex;
+  height: 100vh;
   background-color: #000;
   color: white;
-  min-height: 100vh;
+  font-family: sans-serif;
 }
 
 /* 메인 콘텐츠 */
 .main {
+  margin-left: 250px; /* 사이드바 공간 확보 */
   flex: 1;
-  padding: 109px 20px 80px 20px;
-  margin-left: 0;
-  width: 100%;
-  max-width: 935px;
-  margin: 0 auto;
-  box-sizing: border-box;
+  padding: 40px;
+  overflow-y: auto;
 }
 
-/* 프로필 영역 */
+/* 프로필 정보 영역 */
 .profileInfo {
   display: flex;
   align-items: center;
-  gap: 32px;
   margin-bottom: 40px;
 }
 
-/* 프로필 사진 */
-.avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* 프로필 텍스트 묶음 */
+/* 프로필 텍스트 정렬 */
 .profileText {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 10px;
 }
 
 .userInfoTop {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 12px;
+  gap: 12px;
 }
 
 .userId {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .editBtn {
-  background-color: #262626;
-  color: white;
-  border: none;
   padding: 6px 12px;
+  background-color: #333;
+  border: 1px solid #444;
   border-radius: 4px;
-  font-size: 14px;
+  color: white;
   cursor: pointer;
 }
 
-.editBtn:hover {
-  background-color: #333;
-}
-
-.stats {
-  display: flex;
-  gap: 16px;
+.stats span {
+  margin-right: 20px;
   font-size: 14px;
 }
 
-/* 게시물 그리드 */
+/* 프로필 사진 */
+.avatar {
+  width: 145.357px;
+  height: 145.357px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 40px;
+  margin-left: 300px;
+}
+
+/* 🧱 게시물 그리드 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, 274px); /* ✅ 고정 3개 */
+  gap: 3px;
+  justify-content: center; /* ✅ 항상 가운데 정렬 유지 */
+  margin-top: 210px;
 }
 
 /* 게시물 박스 */
 .postBox {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
+  width: 274px;
+  height: 274px;
   background-color: #222;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
   cursor: pointer;
 }
 
@@ -92,43 +88,33 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0;
 }
 
 .placeholder {
   width: 100%;
   height: 100%;
-  background-color: #444;
+  background-color: #000;
+  background: url("/img/placeholder-image.png") lightgray 50% / cover no-repeat;
+  border-radius: 0;
 }
 
 /* ✅ 반응형 대응 */
 @media (max-width: 1023px) {
   .main {
-    padding: 109px 16px 80px 16px;
-    max-width: 100%;
+    margin-left: 72px; /* 아이콘 사이드바 고려 */
   }
 
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  .avatar {
+    margin-left: 100px;
+    width: 96px;
+    height: 96px;
   }
 }
 
 @media (max-width: 639px) {
   .main {
-    padding-bottom: 100px; /* 하단 nav 가림 방지 */
-  }
-
-  .profileInfo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .avatar {
-    width: 72px;
-    height: 72px;
-  }
-
-  .userId {
-    font-size: 18px;
+    margin-left: 0;
+    padding-bottom: 100px; /* 하단 nav 피하기 */
   }
 }
